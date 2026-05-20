@@ -1,3 +1,34 @@
+// ==========================================
+// REVEAL ON SCROLL (IntersectionObserver)
+// ==========================================
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// ==========================================
+// HERO TITLE WORD ANIMATION
+// ==========================================
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.hero-title .word').forEach((word, i) => {
+    word.style.transition = `transform 1s cubic-bezier(.2,.6,.2,1) ${i * 0.1}s`;
+    requestAnimationFrame(() => {
+      word.style.transform = 'translateY(0)';
+    });
+  });
+});
+
+// ==========================================
+// CONTACT FORM
+// ==========================================
 const contactForm = document.getElementById('contact-form');
 
 if (contactForm) {
