@@ -198,6 +198,8 @@ body {
 
 .hero-floating-image img {
   /* Change object-fit from cover to contain so nothing gets cropped out */
+  width: 660px;
+  height: 720px;
   object-fit: contain; 
   display: block;
 }
