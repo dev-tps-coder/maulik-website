@@ -1,4 +1,31 @@
 // ==========================================
+// TESTIMONIAL CAROUSEL
+// ==========================================
+const quotes = document.querySelectorAll('.voices .q');
+const prevBtn = document.querySelector('.voices .prev');
+const nextBtn = document.querySelector('.voices .next');
+let current = 0;
+
+function showQuote(index) {
+  quotes.forEach(q => q.classList.remove('active'));
+  quotes[index].classList.add('active');
+}
+
+if (quotes.length) {
+  showQuote(0);
+
+  nextBtn && nextBtn.addEventListener('click', () => {
+    current = (current + 1) % quotes.length;
+    showQuote(current);
+  });
+
+  prevBtn && prevBtn.addEventListener('click', () => {
+    current = (current - 1 + quotes.length) % quotes.length;
+    showQuote(current);
+  });
+}
+
+// ==========================================
 // REVEAL ON SCROLL (IntersectionObserver)
 // ==========================================
 const revealObserver = new IntersectionObserver((entries) => {

@@ -197,10 +197,9 @@ body {
 }
 
 .hero-floating-image img {
-  width: 660px;
-  height: 720px;
-  /* Change object-fit from cover to contain so nothing gets cropped out */
-  object-fit: contain; 
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
 }
 
@@ -749,16 +748,34 @@ section { position: relative; z-index: 1; }
   .nav ul { display: none; }
   .hero { padding: 120px 22px 60px; }
   .hero-bottom { grid-template-columns: 1fr; gap: 32px; }
+  .hero-floating-image { display: none; }
+
   .signature { grid-template-columns: 1fr; gap: 40px; }
+
   .expertise .grid { grid-template-columns: repeat(2, 1fr); }
+
   .approach .step { grid-template-columns: 50px 1fr; }
   .approach .step p, .approach .step .arr { display: none; }
+
   .work .grid { grid-template-columns: 1fr; }
   .work .card.wide { grid-column: span 1; }
+
   .numbers .row { grid-template-columns: repeat(2, 1fr); }
   .numbers .stat:nth-child(2) { border-right: none; }
+  .numbers .stat:nth-child(4) { border-right: none; }
+  .numbers .stat:nth-child(1),
+  .numbers .stat:nth-child(2) { border-bottom: 1px solid var(--line); }
+
   .voices .container { grid-template-columns: 1fr; }
-  .voices .q { font-size: 26px; }
+  .voices .quote-stage { min-height: 0; }
+  .voices .q {
+    position: relative; inset: auto;
+    font-size: 24px;
+    display: none;
+    opacity: 1; transform: none;
+  }
+  .voices .q.active { display: block; }
+
   .contact .grid { grid-template-columns: 1fr 1fr; gap: 28px; }
   .section { padding: 100px 22px; }
 
@@ -767,10 +784,28 @@ section { position: relative; z-index: 1; }
   .contact-form .submit { flex-direction: column-reverse; align-items: flex-start; gap: 24px; }
 }
 
+@media (max-width: 480px) {
+  .hero-title { font-size: clamp(52px, 14vw, 72px); }
+  .contact .big { font-size: clamp(40px, 11vw, 60px); }
+  .contact .grid { grid-template-columns: 1fr; }
+  .expertise .grid { grid-template-columns: 1fr; }
+  .numbers .row { grid-template-columns: 1fr; }
+  .numbers .stat { border-right: none; border-bottom: 1px solid var(--line); }
+  .numbers .stat:last-child { border-bottom: none; }
+}
+
 .signature .portrait img {
-  width: 720px;
-  height: 720px;
-  object-fit: cover; /* Keeps the aspect ratio perfect while filling the box */
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
   object-position: top center;
+  display: block;
+}
+
+.hero-floating-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
 }
