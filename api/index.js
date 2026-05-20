@@ -22,7 +22,7 @@ app.post('/api/contact', async (req, res) => {
     // Notice: NO fs.writeFileSync here! Just the email.
     await resend.emails.send({
       from: 'Portfolio Form <onboarding@resend.dev>', 
-      to: 'vishal.g@tripearlsoft.com', // ⚠️ Ensure this is your Resend login email
+      to: 'developer.tripearlsoft@gmail.com', // ⚠️ Ensure this is your Resend login email
       subject: `New Project Brief from ${name}`,
       html: `
         <h2>New Inquiry Captured</h2>
