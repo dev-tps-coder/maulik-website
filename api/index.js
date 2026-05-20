@@ -5,7 +5,7 @@ const { Resend } = require('resend');
 const app = express();
 
 // ⚠️ IMPORTANT: Keep your real Resend API Key here!
-const resend = new Resend('re_YOUR_ACTUAL_API_KEY_HERE'); 
+const resend = new Resend('re_M6S7S1Hm_3FFKwN81rhnu6SK8uzYT9idk'); 
 
 app.use(cors());
 app.use(express.json());
