@@ -40,3 +40,22 @@ if (contactForm) {
     }
   });
 }
+
+// ==========================================
+// THEME TOGGLE (Light/Dark Mode)
+// ==========================================
+const themeToggle = document.querySelector('.theme-toggle');
+const htmlElement = document.documentElement;
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    // If it's currently dark, remove the theme to make it light
+    if (htmlElement.getAttribute('data-theme') === 'dark') {
+      htmlElement.removeAttribute('data-theme');
+    } 
+    // Otherwise, turn dark mode on
+    else {
+      htmlElement.setAttribute('data-theme', 'dark');
+    }
+  });
+}
